@@ -10,8 +10,6 @@ variables:
 
 steps:
 
-- script: composer install --no-interaction --prefer-dist
-  displayName: 'composer install'
 - task: Gradle@3
   displayName: Build
   inputs:
