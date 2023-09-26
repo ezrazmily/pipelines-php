@@ -1,22 +1,14 @@
-# PHP
-# Test and package your PHP application.
-# Add steps that run tests, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/php
-
 pool: my-personal-computer
 
 variables:
   phpVersion: 7.2
 
 steps:
-
-- task: Gradle@3
-  displayName: Build
-  inputs:
-    gradleWrapperFile: 'gradlew'
-    tasks: 'build'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    sonarQubeRunAnalysis: false
-    spotBugsAnalysis: false
+- script: |
+    sudo update-alternatives --set php /usr/bin/php7.2
+    sudo update-alternatives --set phar /usr/bin/phar7.2
+    sudo update-alternatives --set phpdbg /usr/bin/phpdbg7.2
+    sudo update-alternatives --set php-cgi /usr/bin/php-cgi7.2
+    sudo update-alternatives --set phar.phar /usr/bin/phar.phar7.2
+    php -version
+  displayName: 'Use PHP version 7.2'
