@@ -3,8 +3,7 @@
 # Add steps that run tests, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/php
 
-pool:
-  vmImage: 'Ubuntu 16.04'
+pool: my-personal-computer
 
 variables:
   phpVersion: 7.2
